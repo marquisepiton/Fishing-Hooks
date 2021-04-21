@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import Items from "./components/Items";
+import "./App.css";
+import React, {useState, useEffect} from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import axios from  'axios'; 
 
 function App() {
+  const [itemData, setItemData] = useState([]);
+  const axiosGet = () => {
+    let apiURL = "https://awesomeincbootcampapi-ianrios529550.codeanyapp.com";
+
+    axios
+      .get(apiURL + "/api/store/products")
+      .then(function (response) {
+        setItemData(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+  useEffect(axiosGet, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Items itemData={itemData} />
     </div>
   );
 }
