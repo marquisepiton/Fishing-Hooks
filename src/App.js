@@ -1,11 +1,13 @@
-import logo from "./logo.svg";
-import Items from "./components/Items";
 import "./App.css";
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import axios from  'axios'; 
+import axios from "axios";
+import data from "./components/data.json";
+import Products from "./components/Products";
+import NavBarItem from "./components/NavBarItems";
 
 function App() {
+  //================================= Calling from an API to grab all the products =============================================================
   const [itemData, setItemData] = useState([]);
   const axiosGet = () => {
     let apiURL = "https://awesomeincbootcampapi-ianrios529550.codeanyapp.com";
@@ -22,7 +24,16 @@ function App() {
   useEffect(axiosGet, []);
   return (
     <div>
-      <Items itemData={itemData} />
+      <Router>
+        <div>
+          <div className="container-fluid">
+            <ul className="nav nav-pills">
+              <NavBarItem />
+            </ul>
+          </div>
+        </div>
+        <Products itemData={itemData} />
+      </Router>
     </div>
   );
 }
