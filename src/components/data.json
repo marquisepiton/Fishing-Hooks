@@ -1,0 +1,24 @@
+{
+
+    "BillingLabels": [
+
+        "First Name",
+        "Last Name",
+        "Email",
+        "Address",
+        "Country",
+        "State",
+        "Zip"
+
+
+
+    ],
+
+    "pages": [
+        
+        {"name": "Home","url": "home"},
+        {"name": "Products","url": "Products"},
+        {"name": "Contact","url": "Contact"},
+        {"name": "Cart","url": "Cart"}
+    ]
+}
