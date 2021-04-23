@@ -35,7 +35,7 @@ function App() {
         </div>
         <Switch>
           <Route path="/product/:id">
-            <ProductPage />
+            <ProductPage itemData={itemData}/>
           </Route>
           <Route path="/" exact>
             <Products itemData={itemData}/>

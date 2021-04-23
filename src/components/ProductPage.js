@@ -8,7 +8,7 @@ function ProductPage(props){
     // use params to get id 
     
         let { id } = useParams();
-        const product = props.item.find( item => item.id === parseInt(id));
+        const item = props.itemData.find(item => item.id === parseInt(id));
     
     // pass item from app as prop 
 
@@ -17,9 +17,9 @@ function ProductPage(props){
     return(
         <div>
         <li className="list-group-item">
-          <h1>{product && product.name}</h1>
-          <p>{product && product.description}</p>
-          <p>{product && product.price}</p>
+          <h1>{item && item.name}</h1>
+          <p>{item && item.description}</p>
+          <p>{item && item.price}</p>
           <Link to={"/products/"}>
             <button className="item-button">
               Go Back 
