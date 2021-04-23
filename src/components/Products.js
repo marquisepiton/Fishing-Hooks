@@ -1,10 +1,12 @@
 import React from "react";
-import Item from './Items'
+import Item from "./Item";
 
 function Products(props) {
   return (
     <ul className="list-group">
-      <Item itemData={props.itemData}/>
+      {props.itemData && props.itemData.map((item, index) => {
+        return <Item key={index} item={item} />;
+      })}
     </ul>
   );
 }

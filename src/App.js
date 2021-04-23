@@ -5,6 +5,7 @@ import axios from "axios";
 import data from "./components/data.json";
 import Products from "./components/Products";
 import NavBarItem from "./components/NavBarItems";
+import ProductPage from "./components/ProductPage";
 
 function App() {
   //================================= Calling from an API to grab all the products =============================================================
@@ -32,7 +33,14 @@ function App() {
             </ul>
           </div>
         </div>
-        <Products itemData={itemData} />
+        <Switch>
+          <Route path="/product/:id">
+            <ProductPage />
+          </Route>
+          <Route path="/" exact>
+            <Products itemData={itemData}/>
+          </Route>
+        </Switch>
       </Router>
     </div>
   );
